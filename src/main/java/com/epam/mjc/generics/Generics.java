@@ -1,13 +1,14 @@
 package com.epam.mjc.generics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Generics {
 
     //TODO: Refactor Method-1
-    public List<?> boxingMethod(String name) {
+    public List boxingMethod(String name) {
         List<String> firstList = new ArrayList<>();
         firstList.add(name);
         List<List<String>> secondList = new ArrayList<>();
@@ -21,8 +22,8 @@ public class Generics {
     }
 
     //TODO: Refactor Method-3
-    public void cloneMethod(List consumer, List<?> producer) {
-        consumer.addAll(producer.stream().collect(Collectors.toList()));
+    public <T> void cloneMethod(List<T> consumer, List<? extends T> producer) {
+        consumer.addAll(producer);
     }
 
 }
